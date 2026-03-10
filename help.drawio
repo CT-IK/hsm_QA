@@ -1,0 +1,22 @@
+<mxfile host="65bd71144e">
+    <diagram id="9RzszZS_SbB6VNuzP5Mt" name="Страница — 1">
+        <mxGraphModel dx="838" dy="513" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="1) Выгрузить к себе экземпляр нужного бота&lt;div&gt;2) Создать .env файл, посмотреть на пример .env.example&lt;/div&gt;&lt;div&gt;3)Создать нужные чаты, добавить туда заказчиков&lt;/div&gt;&lt;div&gt;4) Добавить туда болта и получить tg id чата&lt;/div&gt;&lt;div&gt;5) Заполнить все поля .env&amp;nbsp;&lt;/div&gt;&lt;div&gt;6) Настроить через код приветсвенное сообщение&lt;/div&gt;&lt;div&gt;7) Выгрузить готового бота на гитхаб(БЕЗ .ENV !!!)&lt;/div&gt;&lt;div&gt;8) зайти на сервер через ssh&lt;/div&gt;&lt;div&gt;9) сделать гитклон&lt;/div&gt;&lt;div&gt;10) Ввести nano .env и создать файл с секретиками&lt;/div&gt;&lt;div&gt;11) запустить бота&amp;nbsp;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="130" width="210" height="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Чек-лист внедрения" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="175" y="88" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Очередь, по которой работаем" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="425" y="88" width="200" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="1) ВШУ&amp;nbsp;&lt;div&gt;2) Финфак&lt;/div&gt;&lt;div&gt;3) Юрфак&lt;br&gt;4) СНиМК&lt;/div&gt;&lt;div&gt;Остальные пока опрашиваем&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="130" width="160" height="290" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
