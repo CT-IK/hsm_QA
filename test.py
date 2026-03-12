@@ -1,7 +1,7 @@
 import random
 import time
 
-lst1 = ['Дяна', 'Милана', 'Александра']
+lst1 = ['Дяна', 'Милана']
 
 
 def get_asst(lst1):

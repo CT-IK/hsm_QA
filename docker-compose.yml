@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: question_bot
+    container_name: HSM_bot
     restart: unless-stopped
     env_file:
       - .env
