@@ -1,7 +1,7 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup
 
 BTN_ASK = "❓ Задать вопрос"
-BTN_INFO = "ℹ️ Информация"
+BTN_ABOUT_US = "ℹ️ О нас"
 BTN_FAQ = "📚 FAQ"
 BTN_ADMIN = "🛠 Админ-панель"
 
@@ -23,7 +23,7 @@ CALLBACK_ADMIN_BROADCAST = "adm_broadcast"
 def get_main_keyboard(is_admin: bool = False) -> ReplyKeyboardMarkup:
     rows = [
         [KeyboardButton(text=BTN_ASK)],
-        [KeyboardButton(text=BTN_INFO), KeyboardButton(text=BTN_FAQ)],
+        [KeyboardButton(text=BTN_ABOUT_US), KeyboardButton(text=BTN_FAQ)],
     ]
     if is_admin:
         rows.append([KeyboardButton(text=BTN_ADMIN)])

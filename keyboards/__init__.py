@@ -1,8 +1,8 @@
 from .main import (
     BTN_ADMIN,
     BTN_ASK,
+    BTN_ABOUT_US,
     BTN_FAQ,
-    BTN_INFO,
     CALLBACK_ADMIN_ADD_FAQ,
     CALLBACK_ADMIN_BROADCAST,
     CALLBACK_ADMIN_DELETE_FAQ,
@@ -26,8 +26,8 @@ from .main import (
 __all__ = [
     "BTN_ADMIN",
     "BTN_ASK",
+    "BTN_ABOUT_US",
     "BTN_FAQ",
-    "BTN_INFO",
     "CALLBACK_ADMIN_ADD_FAQ",
     "CALLBACK_ADMIN_BROADCAST",
     "CALLBACK_ADMIN_DELETE_FAQ",

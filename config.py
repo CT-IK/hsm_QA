@@ -7,6 +7,19 @@ load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN", "")
 ABOUT_TEXT = os.getenv("ABOUT_TEXT", "Information about the department.")
 
+# Текст для кнопки «О нас» (с гиперссылками)
+ABOUT_US_TEXT = (
+    "Привет, студент!\n\n"
+    "Твои проблемы очень важны, и мы работаем, чтобы их решать. "
+    "По всем срочным и сложным вопросам ты всегда можешь написать напрямую нам:\n\n"
+    "Председатель Студенческого совета факультета ВШУ — @anratnikovaa\n"
+    "Заместитель Председателя по учебно-социальной деятельности — @pollillixs\n\n"
+    "Подписывайся на наши медиа, чтобы быть в курсе всех событий:\n"
+    '<a href="https://vk.com/hsmedia">HSMedia</a>\n'
+    '<a href="https://vk.com/hsmedia">Студенческий совет ВШУ | Финансовый университет</a>\n'
+    '<a href=" https://vk.com/hsmedia">ВШУм</a>'
+)
+
 
 def _parse_int(value: str | None) -> int | None:
     if not value:
@@ -33,6 +46,7 @@ ADMIN_IDS = _parse_admin_ids(os.getenv("ADMIN_IDS"))
 
 
 def _build_info_cards() -> list[dict[str, str | None]]:
+    """Карточки для раздела «О нас» (если заданы в .env). Иначе используется только ABOUT_US_TEXT."""
     cards: list[dict[str, str | None]] = []
     for idx in range(1, 5):
         title = (os.getenv(f"INFO_CARD_{idx}_TITLE") or "").strip()
@@ -46,22 +60,7 @@ def _build_info_cards() -> list[dict[str, str | None]]:
                     "photo_url": photo_url or None,
                 }
             )
-
-    if cards:
-        return cards
-
-    return [
-        {
-            "title": "About department",
-            "text": ABOUT_TEXT,
-            "photo_url": None,
-        },
-        {
-            "title": "Contacts",
-            "text": "Set INFO_CARD_2_TEXT in .env to show contacts.",
-            "photo_url": None,
-        },
-    ]
+    return cards
 
 
 INFO_CARDS = _build_info_cards()

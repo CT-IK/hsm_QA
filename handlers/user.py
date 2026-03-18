@@ -3,7 +3,7 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery, Message
 
-from config import ABOUT_TEXT, ADMIN_IDS, INFO_CARDS, QUESTIONS_GROUP_CHAT_ID
+from config import ABOUT_TEXT, ABOUT_US_TEXT, ADMIN_IDS, QUESTIONS_GROUP_CHAT_ID
 from database.dao import (
     create_question,
     get_active_faq_items,
@@ -13,23 +13,20 @@ from database.dao import (
     set_question_answer,
     set_question_group_message,
 )
+
 from handlers.states import AnswerQuestionStates, AskQuestionStates
 from keyboards.main import (
+    BTN_ABOUT_US,
     BTN_ASK,
     BTN_FAQ,
-    BTN_INFO,
     CALLBACK_FAQ_ITEM_PREFIX,
     CALLBACK_FAQ_PAGE_PREFIX,
-    CALLBACK_INFO_ITEM_PREFIX,
-    CALLBACK_INFO_PAGE_PREFIX,
     get_answer_inline_keyboard,
     get_faq_keyboard,
-    get_info_cards_keyboard,
     get_main_keyboard,
 )
 
 user_router = Router()
-INFO_PAGE_SIZE = 5
 FAQ_PAGE_SIZE = 8
 
 
@@ -85,49 +82,9 @@ async def cmd_get_chat_id(message: Message) -> None:
     )
 
 
-@user_router.message(F.text == BTN_INFO)
-async def show_info_menu(message: Message) -> None:
-    await message.answer(
-        "Выберите раздел информации:",
-        reply_markup=get_info_cards_keyboard(INFO_CARDS, page=0, page_size=INFO_PAGE_SIZE),
-    )
-
-
-@user_router.callback_query(F.data.startswith(CALLBACK_INFO_PAGE_PREFIX))
-async def show_info_page(callback: CallbackQuery) -> None:
-    payload = (callback.data or "").replace(CALLBACK_INFO_PAGE_PREFIX, "", 1).strip()
-    try:
-        page = int(payload)
-    except ValueError:
-        await callback.answer("Некорректная страница", show_alert=True)
-        return
-
-    await callback.answer()
-    await callback.message.edit_reply_markup(
-        reply_markup=get_info_cards_keyboard(INFO_CARDS, page=page, page_size=INFO_PAGE_SIZE),
-    )
-
-
-@user_router.callback_query(F.data.startswith(CALLBACK_INFO_ITEM_PREFIX))
-async def show_info_card(callback: CallbackQuery) -> None:
-    payload = (callback.data or "").replace(CALLBACK_INFO_ITEM_PREFIX, "", 1).strip()
-    try:
-        idx = int(payload)
-    except ValueError:
-        await callback.answer("Некорректная карточка", show_alert=True)
-        return
-
-    if idx < 0 or idx >= len(INFO_CARDS):
-        await callback.answer("Карточка не найдена", show_alert=True)
-        return
-
-    card = INFO_CARDS[idx]
-    text = f"<b>{card['title']}</b>\n\n{card['text']}"
-    await callback.answer()
-    if card.get("photo_url"):
-        await callback.message.answer_photo(photo=card["photo_url"], caption=text)
-    else:
-        await callback.message.answer(text)
+@user_router.message(F.text == BTN_ABOUT_US)
+async def show_about_us(message: Message) -> None:
+    await message.answer(ABOUT_US_TEXT)
 
 
 @user_router.message(F.text == BTN_FAQ)
